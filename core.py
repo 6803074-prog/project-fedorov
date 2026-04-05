@@ -1,1 +1,1 @@
-"def process(data): return data.upper()" 
+"def process(data): return data.strip().upper()" 
