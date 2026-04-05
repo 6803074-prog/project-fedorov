@@ -1,1 +1,1 @@
-"def process(data): return data.strip().upper()" 
+"def process(data): return None if data == '' else data.upper()" 
