@@ -1,1 +1,1 @@
-"def validate(data): return len(data) > 0" 
+"def validate(data): return len(data) > 0"
