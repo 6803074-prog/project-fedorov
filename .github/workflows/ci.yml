@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install pytest flake8 mypy bandit
+      - name: Lint with flake8
+        run: flake8 . --max-line-length=120 --ignore=W291,E302
+      - name: Static type check with mypy
+        run: mypy . --ignore-missing-imports || true
+      - name: Security scan with bandit
+        run: bandit -r . -ll || true
+      - name: Run unit tests with pytest
+        run: pytest -v
