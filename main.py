@@ -1,2 +1,2 @@
-"def main(): print('Hello')" 
+"def main(): print('Hello')"
 "print('START')" 
