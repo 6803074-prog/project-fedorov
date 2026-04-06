@@ -1,7 +1,7 @@
 import core
 
-def test_process_upper():
-    assert core.process('hello') == 'HELLO'
+def test_is_even_with_even_number():
+    assert core.is_even(4) is True
 
-def test_process_empty():
-    assert core.process('') is None
+def test_is_even_with_odd_number():
+    assert core.is_even(5) is False
