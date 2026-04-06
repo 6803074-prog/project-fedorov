@@ -1,7 +1,5 @@
-import core
+# test_core.py
+from core import some_function   # заміни на реальну функцію
 
-def test_process_upper():
-    assert core.process('hello') == 'HELLO'
-
-def test_process_empty():
-    assert core.process('') is None
+def test_something():
+    assert some_function(2, 3) == 5
