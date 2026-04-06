@@ -1,1 +1,2 @@
-"def process(data): return None if data == '' else data.upper()" 
+def add(a, b):
+    return a + b
