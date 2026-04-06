@@ -1,0 +1,7 @@
+import core
+
+def test_process_upper():
+    assert core.process('hello') == 'HELLO'
+
+def test_process_empty():
+    assert core.process('') is None
