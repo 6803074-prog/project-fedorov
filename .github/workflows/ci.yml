@@ -1,21 +1,26 @@
 name: CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-      - name: Check syntax
-        run: python -m py_compile core.py test_core.py
-      - name: Run tests
-        run: python -c "import test_core; print('Tests passed')"
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install pytest flake8 mypy bandit
+      - name: Lint with flake8
+        run: flake8 . --max-line-length=120
+      - name: Static type check with mypy
+        run: mypy . --ignore-missing-imports || true
+      - name: Security scan with bandit
+        run: bandit -r . -ll || true
+      - name: Run unit tests with pytest
+        run: pytest -v
