@@ -1,1 +1,1 @@
-"def get_input(): return input('Enter: ')" 
+"def get_input(): return input('Enter: ')"
