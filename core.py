@@ -1,4 +1,3 @@
-def process(text):
-    if text == '':
-        return None
-    return text.upper()
+def is_even(number):
+    """Повертає True, якщо число парне, інакше False."""
+    return number % 2 == 0
